@@ -124,13 +124,14 @@ document.addEventListener('DOMContentLoaded', () => {
         field.classList.toggle('invalid', !ok);
         if (!ok) valid = false;
       });
+      const ar = document.documentElement.lang === 'ar';
       if (!valid) {
-        status.textContent = 'Please fill in the required fields correctly.';
+        status.textContent = ar ? 'من فضلك اكمل البيانات المطلوبة بشكل صحيح.' : 'Please fill in the required fields correctly.';
         status.className = 'form-status err';
         return;
       }
       // TODO: connect to a real backend or a service like Formspree
-      status.textContent = 'Thank you. Our engineering team will contact you shortly.';
+      status.textContent = ar ? 'شكراً لك، سيتواصل معك فريقنا الهندسي قريباً.' : 'Thank you. Our engineering team will contact you shortly.';
       status.className = 'form-status ok';
       form.reset();
     });
